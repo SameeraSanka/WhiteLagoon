@@ -20,7 +20,12 @@
                 @* we can male this all or none
                 <div asp-validation-summary="ModelOnly"></div>*@
                 <div class="form-floating py-1 col-12">
-                    <input asp-for="VillaId" class="form-control border shadow" />
+                    @* controller eken pass krapu view data methanadi allagannwa. 
+                    viewbage use kroth asp-items="@ViewData["list"] me part ekaliyawenne mehema asp-items="@ViewBag.list*@
+                    <select asp-for="@Model.VillaId" asp-items="@ViewData["list"] as IEnumerable<SelectListItem>"
+                        class="form-select border shadow">
+                    <option disabled selected>-Select Villa-</option>    
+                    </select>
                     <label asp-for="VillaId" class="ms-2"></label>
                     <span asp-validation-for="VillaId" class="text-danger"></span>
                 </div>

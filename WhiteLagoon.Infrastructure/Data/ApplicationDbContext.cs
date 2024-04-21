@@ -57,11 +57,11 @@ namespace WhiteLagoon.Infrastructure.Data
                 );
 
             modelBuilder.Entity<VillaNumber>().HasData(
-                     new VillaNumber
-                     {
-                         Villa_Number = 101,
-                         VillaId = 1,
-                     },
+                new VillaNumber
+                {
+                    Villa_Number = 101,
+                    VillaId = 1,
+                },
                 new VillaNumber
                 {
                     Villa_Number = 102,

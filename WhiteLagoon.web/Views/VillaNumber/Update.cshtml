@@ -9,30 +9,28 @@
     <div class="card-header bg-success bg-gradient ml-0 py-3 ">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white py-2 ">Create Villa Number</h2>
+                <h2 class="text-white py-2 ">Update Villa Number</h2>
             </div>
         </div>
     </div>
 
     <div class="card-body border p-4">
         <form method="post" class="row">
+            <input asp-for="VillaNumber.Villa_Number" hidden /> @*pahala disabled krpu nisa meka ID eka enne na. ID eka one nisa mehema mehema danwa hide krala *@
             <div class="p-3">
-                @* we can male this all or none
-                <div asp-validation-summary="ModelOnly"></div>*@
+
                 <div class="form-floating py-1 col-12">
-                    @* controller eken pass krapu view data methanadi allagannwa. 
-                    viewbage use kroth asp-items="@ViewData["list"] me part ekaliyawenne mehema asp-items="@ViewBag.list*@
-                   @* eth dan methama karala thiyenne viewbag ekawth viewdata walin wath newei. *@
+
                     <select asp-for="@Model.VillaNumber.VillaId" asp-items="@Model.VillaList as IEnumerable<SelectListItem>"
-                        class="form-select border shadow">
-                    <option disabled selected>-Select Villa-</option>    
+                            class="form-select border shadow">
+                        <option disabled selected>-Select Villa-</option>
                     </select>
                     <label asp-for="VillaNumber.VillaId" class="ms-2"></label>
                     <span asp-validation-for="VillaNumber.VillaId" class="text-danger"></span>
                 </div>
 
                 <div class="form-floating py-1 col-12">
-                    <input asp-for="VillaNumber.Villa_Number" class="form-control border shadow" />
+                    <input asp-for="VillaNumber.Villa_Number" disabled class="form-control border shadow" />
                     <label asp-for="VillaNumber.Villa_Number" class="ms-2"></label>
                     <span asp-validation-for="VillaNumber.Villa_Number" class="text-danger"></span>
                 </div>
@@ -46,7 +44,7 @@
                 <div class="row pt-2">
                     <div class="col-6 col-md-3">
                         <button type="submit" class="btn btn-primary w-100">
-                            <i class=" bi-check-circle"></i> Create
+                            <i class=" bi-check-circle"></i> Update
                         </button>
                     </div>
                     <div class="col-6 col-md-3">
@@ -61,4 +59,3 @@
 
 
 </div>
-

@@ -20,7 +20,7 @@ namespace WhiteLagoon.web.Controllers
         public IActionResult Index()
         {
             var villaNumbers = _unitOfWork.VillaNumber.GetAll(includeProperties: "Villa");
-            //Include(u => u.Villa) meka dammama auto ma model eke vills table ekath ekka
+            //Inc lude(u => u.Villa) meka dammama auto ma model eke vills table ekath ekka
             //forign key hadala thiyna nisa Villa table ekath ekka join ekak gahagena Villa wala onnoma delails denwa
             //(navigation proprty kiyla kiynne) thwath ekak danna onenan then kiyula ayeth ekak dnna puluwan 
             return View(villaNumbers);

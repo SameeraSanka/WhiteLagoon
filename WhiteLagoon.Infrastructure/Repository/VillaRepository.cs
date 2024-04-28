@@ -20,11 +20,6 @@ namespace WhiteLagoon.Infrastructure.Repository
             _db = context;
         }
 
-        public void Save()
-        {
-            _db.SaveChanges();
-        }
-
         public void Update(Villa villa)
         {
             _db.Update(villa);

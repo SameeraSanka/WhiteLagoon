@@ -52,10 +52,10 @@ namespace WhiteLagoon.web.Controllers
             // e model ekata data pass kranwa. itpasse view ekata e VM eken data gannwa
             VillaNumberVM villaNumberVM = new()
             {
-                VillaList = _unitOfWork.Villa.GetAll().Select(u=> new SelectListItem
+                VillaList = _unitOfWork.Villa.GetAll().Select(Villa=> new SelectListItem
                 {
-                    Text = u.Name,
-                    Value = u.Id.ToString(),
+                    Text = Villa.Name,
+                    Value = Villa.Id.ToString(),
                 })
             };
             return View(villaNumberVM);
@@ -71,7 +71,7 @@ namespace WhiteLagoon.web.Controllers
             if(ModelState.IsValid && !roomNumber)
             {
                 _unitOfWork.VillaNumber.Add(obj.VillaNumber);
-                _unitOfWork.VillaNumber.Save();
+                _unitOfWork.Save();
                 TempData["success"] = "The villa Number has been Added successfully";
                 return RedirectToAction("Index");
             }
@@ -113,7 +113,7 @@ namespace WhiteLagoon.web.Controllers
             if(ModelState.IsValid)
             {
                 _unitOfWork.VillaNumber.Update(villaNumberVM.VillaNumber);
-                _unitOfWork.VillaNumber.Save();
+                _unitOfWork.Save();
                 TempData["success"] = "The villa Number has been Updated Succsessfully";
                 return RedirectToAction("Index");
             }
@@ -152,7 +152,8 @@ namespace WhiteLagoon.web.Controllers
             if(objFromDb is not null)
             {
                 _unitOfWork.VillaNumber.Remove(objFromDb);
-                _unitOfWork.VillaNumber.Save();
+                _unitOfWork.Save();
+
                 TempData["success"] = "The villa Number has beed deleted";
                 return RedirectToAction(nameof(Index));
             }

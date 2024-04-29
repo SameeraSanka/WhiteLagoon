@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -32,5 +33,11 @@ namespace WhiteLagoon.Domain.Entities
         public string? ImageUrl { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
+
+        // one to many relation ekak Amenity and  villa athare thiyna nisa pahala widihata Amenity tika
+        // e adala villa ekata ganna puluwan. me pahala code eka database update gahanna one na
+        // Itapasse include property ekak widihata dnwa data ganna thana
+        [ValidateNever]
+        public IEnumerable<Amenity> VillaAmenity { get; set; }
     }
 }

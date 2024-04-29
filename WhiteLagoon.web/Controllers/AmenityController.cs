@@ -28,7 +28,6 @@ namespace WhiteLagoon.web.Controllers
                 {
                     Text = Villa.Name,
                     Value = Villa.Id.ToString(),
-
                 })
             };
             return View(amenityVM);

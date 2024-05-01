@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WhiteLagoon.Application.Common.Interface;
@@ -9,6 +10,7 @@ using WhiteLagoon.web.ViewModels;
 
 namespace WhiteLagoon.web.Controllers
 {
+    [Authorize]
     public class VillaNumberController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -90,7 +92,7 @@ namespace WhiteLagoon.web.Controllers
         //view the Update View
         public IActionResult Update(int villaNumberId)
         {
-            VillaNumberVM villaNumberVM = new()
+             var villaNumberVM = new VillaNumberVM()
             {
                 VillaList = _unitOfWork.Villa.GetAll().Select(u => new SelectListItem
                 {

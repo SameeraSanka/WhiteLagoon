@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<ApplicationUser> SignInManager // meka gnne signin welada ndda balanna 
+@inject UserManager<ApplicationUser> UserManager // meka ganne signin un user ge name eka ganna
+
+<ul class="navbar-nav">
+	@*claim principle eka yatathe thma methana user wa gnne. eka .net wla hadalama thiynne*@
+	@if (SignInManager.IsSignedIn(User))
+	{
+		<li class="nav-item">
+			<a class="nav-link" href="#">Hello, @UserManager.GetUserName(User)</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a>
+		</li>
+	}
+	else{
+
+	<li class="nav-item">
+		<a class="nav-link" asp-controller="Account" asp-action="Register">Register</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" asp-controller="Account" asp-action="LogIn">Login</a>
+	</li>
+	}
+
+</ul>

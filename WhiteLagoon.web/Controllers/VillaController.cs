@@ -1,10 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WhiteLagoon.Application.Common.Interface;
+using WhiteLagoon.Application.Common.Utility;
 using WhiteLagoon.Domain.Entities;
 using WhiteLagoon.Infrastructure.Data;
 
 namespace WhiteLagoon.web.Controllers
 {
+	//meke Authorize withrak dmmoth villa page eka accsess krnna log wennma one.
+    // me sampunma eka dna eken wenne villa page eka accsess krnnanan admin kenek wennmaone kiyla 
+	[Authorize(Roles = StaticDetails.Role_Admin)]
     public class VillaController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

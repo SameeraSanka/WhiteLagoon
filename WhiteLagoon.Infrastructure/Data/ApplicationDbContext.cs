@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,11 @@ using WhiteLagoon.Domain.Entities;
 
 namespace WhiteLagoon.Infrastructure.Data
 {
-    public class ApplicationDbContext : DbContext
+    //User authentication use kranwanan DbContext eka IdentityDbContext weidihata wenas wenwa
+    //Nuget package eka install krannth one.
+    //Program.cs eke register krnnth one (Configer)
+    // Ewageema IdentityDbContext use krama automaticaly login register table hadenwa
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -19,9 +24,16 @@ namespace WhiteLagoon.Infrastructure.Data
         public DbSet<VillaNumber> VillaNumbers { get; set; }
         public DbSet<Amenity> Amenities { get; set; }
 
+        // mehema dmta Application user kiyla authin table ekak hadennena
+        //class eka reffer krala awashya table ekata add kranwa
+        public DbSet<ApplicationUser> applicationUsers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //base.OnModelCreating(modelBuilder);
+            //add-migration  run krnna kain meka uncaomment krnna one. 
+            // mokada table tika hadenakota onmodel creteing method eka override wenna one.
+            // Hethuwa thama the keys for the identity table are map on the onModelCreating method of the IdentityDbContex
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Villa>().HasData(
                  new Villa

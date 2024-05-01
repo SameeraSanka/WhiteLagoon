@@ -39,5 +39,8 @@ namespace WhiteLagoon.Domain.Entities
         // Itapasse include property ekak widihata dnwa data ganna thana
         [ValidateNever]
         public IEnumerable<Amenity> VillaAmenity { get; set; }
+
+        [NotMapped]
+        public bool IsAvailable { get; set; } = true;
     }
 }

@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\VillaImages\" />
+    <Folder Include="wwwroot\jquery\" />
   </ItemGroup>
 
 </Project>

@@ -23,6 +23,7 @@ namespace WhiteLagoon.Infrastructure.Data
         public DbSet<Villa> Villas { get; set; }
         public DbSet<VillaNumber> VillaNumbers { get; set; }
         public DbSet<Amenity> Amenities { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
 
         // mehema dmta Application user kiyla authin table ekak hadennena
         //class eka reffer krala awashya table ekata add kranwa
